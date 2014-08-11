@@ -106,7 +106,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
-                .setOngoing(true)
+                //.setOngoing(true)
 				.setAutoCancel(true);
 
 		String message = extras.getString("message");
