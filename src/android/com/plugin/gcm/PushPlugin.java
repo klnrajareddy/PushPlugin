@@ -45,7 +45,7 @@ public class PushPlugin extends CordovaPlugin {
 
 		boolean result = false;
 
-		Log.v(TAG, "execute: action=" + action);
+		Log.i(TAG, "pushplugin : execute: pushplugin action=" + action);
 
 		if (REGISTER.equals(action)) {
 
@@ -71,8 +71,9 @@ public class PushPlugin extends CordovaPlugin {
 				callbackContext.error(e.getMessage());
 			}
 
+            Log.i(TAG, "pushplugin : checking to send cached extras");
 			if ( gCachedExtras != null) {
-				Log.v(TAG, "sending cached extras");
+				Log.i(TAG, "sending cached extras");
 				sendExtras(gCachedExtras);
 				gCachedExtras = null;
 			}
@@ -113,9 +114,10 @@ public class PushPlugin extends CordovaPlugin {
 	{
 		if (extras != null) {
 			if (gECB != null && gWebView != null) {
+                Log.i(TAG, "pushplugin : sendExtras: sending to javascript");
 				sendJavascript(convertBundleToJson(extras));
 			} else {
-				Log.v(TAG, "sendExtras: caching extras to send at a later time.");
+				Log.i(TAG, "pushplugin : sendExtras: caching extras to send at a later time.");
 				gCachedExtras = extras;
 			}
 		}
