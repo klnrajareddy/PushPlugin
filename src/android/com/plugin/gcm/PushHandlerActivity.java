@@ -40,6 +40,7 @@ public class PushHandlerActivity extends Activity
 	 */
 	private void processPushBundle(boolean isPushPluginActive)
 	{
+        Log.i(TAG, "pushplugin : process push bundle called");
 		Bundle extras = getIntent().getExtras();
 
 		if (extras != null)	{
